@@ -8,6 +8,7 @@
 [node name="Mask" type="Node2D"]
 script = ExtResource("1_pg4n1")
 mask_index = 6
+max_mask_index = 15
 projectile = ExtResource("2_12g8c")
 
 [node name="MaskSprite" type="Sprite2D" parent="."]
@@ -15,10 +16,11 @@ unique_name_in_owner = true
 texture = ExtResource("1_la0de")
 hframes = 8
 vframes = 2
-frame = 10
+frame = 6
 
 [node name="ShootPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
+rotation = -6.6775036
 
 [node name="DebugSprite" type="Sprite2D" parent="ShootPoint"]
 position = Vector2(6, 0)
