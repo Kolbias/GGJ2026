@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=3 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
+[ext_resource type="PackedScene" uid="uid://bomu06x5mw8gn" path="res://Data/Maps/room_test.tscn" id="2_5ti13"]
 
 [node name="World" type="Node2D"]
 
+[node name="RoomTest" parent="." instance=ExtResource("2_5ti13")]
+position = Vector2(-130, -129)
+
 [node name="Player" parent="." instance=ExtResource("1_0hdeg")]
-position = Vector2(470, 253)
+position = Vector2(12, 13)
+
+[node name="Camera2D" type="Camera2D" parent="."]
