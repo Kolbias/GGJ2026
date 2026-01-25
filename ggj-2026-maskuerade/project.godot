@@ -15,6 +15,12 @@ run/main_scene="uid://cqkw75bd3y1re"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=256
+window/stretch/scale=4.0
+
 [dotnet]
 
 project/assembly_name="GGJ2026Maskuerade"
@@ -45,3 +51,7 @@ MoveRight={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
