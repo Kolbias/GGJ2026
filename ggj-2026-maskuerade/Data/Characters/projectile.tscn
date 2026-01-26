@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://biv2hu4dixpfq"]
+[gd_scene load_steps=5 format=3 uid="uid://biv2hu4dixpfq"]
 
 [ext_resource type="Script" uid="uid://24802288ogvx" path="res://Data/Characters/projectile.gd" id="1_nfmnk"]
 [ext_resource type="Texture2D" uid="uid://d1jnnksudy7x5" path="res://Data/Assets/Projectile.png" id="2_nfmnk"]
+[ext_resource type="Texture2D" uid="uid://d11c44og4ypk4" path="res://Data/Assets/light.png" id="3_x5xwk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nfmnk"]
 radius = 3.1622777
 
-[node name="Projectile" type="Area2D"]
+[node name="Projectile" type="Area2D" groups=["projectile"]]
 script = ExtResource("1_nfmnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,5 +17,9 @@ texture = ExtResource("2_nfmnk")
 shape = SubResource("CircleShape2D_nfmnk")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_x5xwk")
+texture_scale = 0.2
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
