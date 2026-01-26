@@ -9,25 +9,21 @@ class_name Mask
 
 @onready var mask_sprite: Sprite2D = %MaskSprite
 @onready var shoot_point: Node2D = %ShootPoint
+var mask_types = []
 
 func _ready() -> void:
 	_UpdateSwitchedMask()
+	#temporary to set mask_types array
+	mask_types.resize(max_mask_index + 1)
+	mask_types.fill("default")
+	mask_types[1] = "bounce"
 
 func _process(_delta: float) -> void:
 	shoot_point.look_at(get_global_mouse_position())
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Shoot"):
-		GameEvents.shot_fired.emit(shoot_point.global_position, get_global_mouse_position())
-		#var inst = projectile.instantiate()
-		#inst.dir = get_global_mouse_position() - shoot_point.global_position
-		#inst.dir = inst.dir.normalized()
-		
-		# 🤚 Don't do this at home kids! ...consider replacing with Global Signal/Autoload
-		#get_parent().get_parent().add_child(inst)
-		
-		#inst.global_position = shoot_point.global_position
-		#inst.global_rotation = shoot_point.global_rotation
+		GameEvents.shot_fired.emit(shoot_point.global_position, get_global_mouse_position(), mask_types[mask_index])
 
 func OnSwitchNextMask():
 	mask_index = wrapi(mask_index + 1, 0, max_mask_index - 1)
