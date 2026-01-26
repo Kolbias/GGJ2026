@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 @export var max_hp := 10
 
 @onready var maskRef : Mask = $Mask
-@onready var anim: AnimationPlayer = %AnimationPlayer
+@onready var base_sprite: AnimatedSprite2D = $BaseSprite
 
 var current_hp: int 
 
@@ -29,9 +29,9 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	if direction:
 		velocity = direction * SPEED
-		anim.play("run")
+		base_sprite.play("run")
 	else:
-		anim.stop()
+		base_sprite.play("default")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	move_and_slide()
@@ -43,4 +43,4 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		print("Player HP: " + str(current_hp))
 		if current_hp <= 0:
 			print("You are died!")
-			queue_free()
+			hide()

@@ -1,48 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3608fwt5r0iw"]
+[gd_scene load_steps=11 format=3 uid="uid://c3608fwt5r0iw"]
 
 [ext_resource type="Script" uid="uid://d17n0g8hiquq2" path="res://Data/Characters/player.gd" id="1_fq6r7"]
-[ext_resource type="Texture2D" uid="uid://cgew3q3qogoku" path="res://Data/Characters/Wizard.png" id="2_fq6r7"]
+[ext_resource type="Texture2D" uid="uid://4cgyujv5qptq" path="res://Data/Characters/WizardSpriteSheet.png" id="2_qdver"]
 [ext_resource type="PackedScene" uid="uid://dhhsriv8n2y0" path="res://Data/Characters/mask.tscn" id="3_qdver"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4ef4"]
+atlas = ExtResource("2_qdver")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvefv"]
+atlas = ExtResource("2_qdver")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xvli"]
+atlas = ExtResource("2_qdver")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmnql"]
+atlas = ExtResource("2_qdver")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fq6r7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4ef4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvefv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmnql")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fq6r7"]
 radius = 4.0
-
-[sub_resource type="Animation" id="Animation_a4ef4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BaseSprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qdver"]
-resource_name = "run"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BaseSprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.23333335, 0.36666667, 0.5, 0.6333333, 0.722453),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 0.9), Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvefv"]
-_data = {
-&"RESET": SubResource("Animation_a4ef4"),
-&"run": SubResource("Animation_qdver")
-}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qdver"]
 radius = 5.0
@@ -50,21 +54,15 @@ radius = 5.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_fq6r7")
 
-[node name="BaseSprite" type="Sprite2D" parent="."]
+[node name="BaseSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_fq6r7")
+sprite_frames = SubResource("SpriteFrames_fq6r7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fq6r7")
 
 [node name="Mask" parent="." instance=ExtResource("3_qdver")]
 mask_index = 8
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_vvefv")
-}
 
 [node name="Hurtbox" type="Area2D" parent="."]
 

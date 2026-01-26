@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=11 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
 [ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bjeaoc8opheyp" path="res://Data/Maps/room_2.tscn" id="3_0d2ig"]
 [ext_resource type="Script" uid="uid://dpfx2nnlrswvn" path="res://Scripts/Projectile_Manager.gd" id="3_nm2yv"]
 [ext_resource type="Texture2D" uid="uid://d11c44og4ypk4" path="res://Data/Assets/light.png" id="4_dwg7r"]
+[ext_resource type="Texture2D" uid="uid://ded8j6ehtpej0" path="res://Data/Assets/HealthBarOver.png" id="8_clt4m"]
+[ext_resource type="Script" uid="uid://cy2elpm8ib22q" path="res://Scripts/game_ui.gd" id="8_vm3ls"]
+[ext_resource type="Texture2D" uid="uid://fd1atvnl0jrw" path="res://Data/Assets/HealthBarFill.png" id="9_vm3ls"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfkfy")
@@ -34,3 +37,37 @@ texture_scale = 0.7
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(128, 128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_vm3ls")
+player = NodePath("../../Player")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameUI"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 9.0
+grow_vertical = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUI/MarginContainer"]
+layout_mode = 2
+
+[node name="HPBar" type="TextureProgressBar" parent="CanvasLayer/GameUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_over = ExtResource("8_clt4m")
+texture_progress = ExtResource("9_vm3ls")
