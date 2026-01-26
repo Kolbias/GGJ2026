@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 const SPEED = 175.0
-const JUMP_VELOCITY = -400.0
 
 @export var max_hp := 10
 
@@ -22,13 +21,9 @@ func _ready() -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("DebugMaskNext"):
-		maskRef.OnSwitchNextMask()
 	if event.is_action_pressed("MaskNext"):
 		_MoveToNextMask()
 		get_viewport().set_input_as_handled()
-	if event.is_action_pressed("DebugMaskPrev"):
-		maskRef.OnSwitchPrevMask()
 	if event.is_action_pressed("MaskPrev"):
 		_MoveToPrevMask()
 		get_viewport().set_input_as_handled()
