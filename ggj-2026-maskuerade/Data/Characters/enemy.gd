@@ -29,7 +29,6 @@ func _process(_delta: float) -> void:
 			state_debug_label.text = "IDLE"
 			
 		State.WANDER:
-			
 			state_debug_label.text = "WANDER"
 			
 		State.CHASE:

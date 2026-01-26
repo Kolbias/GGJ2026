@@ -4,7 +4,15 @@ extends CharacterBody2D
 const SPEED = 175.0
 const JUMP_VELOCITY = -400.0
 
+@export var max_hp := 10
+
 @onready var maskRef : Mask = $Mask
+@onready var anim: AnimationPlayer = %AnimationPlayer
+
+var current_hp: int 
+
+func _ready() -> void:
+	current_hp = max_hp
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DebugMaskNext"):
@@ -21,7 +29,9 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	if direction:
 		velocity = direction * SPEED
+		anim.play("run")
 	else:
+		anim.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 

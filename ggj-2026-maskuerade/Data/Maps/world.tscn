@@ -1,16 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=8 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
+[ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
 [ext_resource type="PackedScene" uid="uid://bomu06x5mw8gn" path="res://Data/Maps/room_test.tscn" id="2_5ti13"]
+[ext_resource type="PackedScene" uid="uid://d1u81yilej0nj" path="res://Data/Maps/room_1.tscn" id="2_j5ytp"]
+[ext_resource type="PackedScene" uid="uid://bjeaoc8opheyp" path="res://Data/Maps/room_2.tscn" id="3_0d2ig"]
 [ext_resource type="Script" uid="uid://dpfx2nnlrswvn" path="res://Scripts/Projectile_Manager.gd" id="3_nm2yv"]
 [ext_resource type="Texture2D" uid="uid://d11c44og4ypk4" path="res://Data/Assets/light.png" id="4_dwg7r"]
-[ext_resource type="PackedScene" uid="uid://67f70nsheois" path="res://Data/Characters/enemy.tscn" id="5_6f6fm"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_rfkfy")
+rooms = Array[PackedScene]([ExtResource("2_j5ytp"), ExtResource("3_0d2ig")])
 
-[node name="RoomTest" parent="." instance=ExtResource("2_5ti13")]
+[node name="CurrentRoom" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="RoomTest" parent="CurrentRoom" instance=ExtResource("2_5ti13")]
 
 [node name="Player" parent="." instance=ExtResource("1_0hdeg")]
+unique_name_in_owner = true
 position = Vector2(136, 138)
 
 [node name="Projectile_Manager" type="Node" parent="."]
@@ -26,12 +34,3 @@ texture_scale = 0.7
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(132, 132)
-
-[node name="Enemy" parent="." instance=ExtResource("5_6f6fm")]
-position = Vector2(71, 79)
-
-[node name="Enemy2" parent="." instance=ExtResource("5_6f6fm")]
-position = Vector2(158, 79)
-
-[node name="Enemy3" parent="." instance=ExtResource("5_6f6fm")]
-position = Vector2(85, 173)
