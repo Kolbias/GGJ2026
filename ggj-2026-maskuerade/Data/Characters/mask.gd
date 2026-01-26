@@ -18,16 +18,16 @@ func _process(_delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Shoot"):
-		var inst = projectile.instantiate()
-		
-		inst.dir = get_global_mouse_position() - shoot_point.global_position
-		inst.dir = inst.dir.normalized()
+		GameEvents.shot_fired.emit(shoot_point.global_position, get_global_mouse_position())
+		#var inst = projectile.instantiate()
+		#inst.dir = get_global_mouse_position() - shoot_point.global_position
+		#inst.dir = inst.dir.normalized()
 		
 		# 🤚 Don't do this at home kids! ...consider replacing with Global Signal/Autoload
-		get_parent().get_parent().add_child(inst)
+		#get_parent().get_parent().add_child(inst)
 		
-		inst.global_position = shoot_point.global_position
-		inst.global_rotation = shoot_point.global_rotation
+		#inst.global_position = shoot_point.global_position
+		#inst.global_rotation = shoot_point.global_rotation
 
 func OnSwitchNextMask():
 	mask_index = wrapi(mask_index + 1, 0, max_mask_index - 1)
