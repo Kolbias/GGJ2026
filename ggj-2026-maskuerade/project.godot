@@ -21,11 +21,14 @@ GameEvents="*res://Scripts/Game_Events.gd"
 
 [display]
 
-window/size/viewport_width=512
-window/size/viewport_height=512
-window/size/initial_position_type=0
+window/size/viewport_width=256
+window/size/viewport_height=256
 window/size/resizable=false
+window/size/window_width_override=512
+window/size/window_height_override=512
+window/stretch/aspect="expand"
 window/stretch/scale=2.0
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
