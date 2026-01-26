@@ -20,7 +20,7 @@ frame = 6
 
 [node name="ShootPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-rotation = -6.6775036
+rotation = 0.31072897
 
 [node name="DebugSprite" type="Sprite2D" parent="ShootPoint"]
 position = Vector2(6, 0)
