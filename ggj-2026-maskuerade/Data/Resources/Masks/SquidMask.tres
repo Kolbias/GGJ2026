@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MaskResource" load_steps=4 format=3 uid="uid://b21pqwttwrl2b"]
+
+[ext_resource type="Texture2D" uid="uid://cmh23scnfa7el" path="res://Data/Assets/Masks/WizardMasksTileset.png" id="1_2ts6q"]
+[ext_resource type="Script" uid="uid://cqkn2eqhcgslb" path="res://Scripts/Equipment/MaskResource.gd" id="2_5k6bn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ts6q"]
+atlas = ExtResource("1_2ts6q")
+region = Rect2(96, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_5k6bn")
+maskName = "Squid Mask"
+maskSprite = SubResource("AtlasTexture_2ts6q")
+metadata/_custom_type_script = "uid://cqkn2eqhcgslb"

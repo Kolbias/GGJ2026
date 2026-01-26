@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MaskResource" load_steps=2 format=3 uid="uid://dygxcknfpntae"]
+
+[ext_resource type="Script" uid="uid://cqkn2eqhcgslb" path="res://Scripts/Equipment/MaskResource.gd" id="2_40w5d"]
+
+[resource]
+script = ExtResource("2_40w5d")
+metadata/_custom_type_script = "uid://cqkn2eqhcgslb"

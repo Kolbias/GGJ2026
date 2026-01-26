@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MaskResource" load_steps=4 format=3 uid="uid://b34lpkc5do1qy"]
+
+[ext_resource type="Texture2D" uid="uid://cmh23scnfa7el" path="res://Data/Assets/Masks/WizardMasksTileset.png" id="1_phwgo"]
+[ext_resource type="Script" uid="uid://cqkn2eqhcgslb" path="res://Scripts/Equipment/MaskResource.gd" id="2_dhavb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phwgo"]
+atlas = ExtResource("1_phwgo")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_dhavb")
+maskName = "Rabbit Mask"
+maskSprite = SubResource("AtlasTexture_phwgo")
+maskType = "bounce"
+metadata/_custom_type_script = "uid://cqkn2eqhcgslb"

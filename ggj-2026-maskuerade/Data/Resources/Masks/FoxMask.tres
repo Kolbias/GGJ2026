@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MaskResource" load_steps=4 format=3 uid="uid://dk360gm5cy1vs"]
+
+[ext_resource type="Texture2D" uid="uid://cmh23scnfa7el" path="res://Data/Assets/Masks/WizardMasksTileset.png" id="1_04822"]
+[ext_resource type="Script" uid="uid://cqkn2eqhcgslb" path="res://Scripts/Equipment/MaskResource.gd" id="1_iq7ue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t81iq"]
+atlas = ExtResource("1_04822")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_iq7ue")
+maskName = "Fox Mask"
+maskSprite = SubResource("AtlasTexture_t81iq")
+metadata/_custom_type_script = "uid://cqkn2eqhcgslb"

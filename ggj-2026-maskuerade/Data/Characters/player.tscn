@@ -1,8 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3608fwt5r0iw"]
+[gd_scene load_steps=15 format=3 uid="uid://c3608fwt5r0iw"]
 
 [ext_resource type="Script" uid="uid://d17n0g8hiquq2" path="res://Data/Characters/player.gd" id="1_fq6r7"]
+[ext_resource type="Script" uid="uid://cqkn2eqhcgslb" path="res://Scripts/Equipment/MaskResource.gd" id="2_mmnql"]
 [ext_resource type="Texture2D" uid="uid://4cgyujv5qptq" path="res://Data/Characters/WizardSpriteSheet.png" id="2_qdver"]
+[ext_resource type="Resource" uid="uid://dk360gm5cy1vs" path="res://Data/Resources/Masks/FoxMask.tres" id="3_m40r1"]
 [ext_resource type="PackedScene" uid="uid://dhhsriv8n2y0" path="res://Data/Characters/mask.tscn" id="3_qdver"]
+[ext_resource type="Resource" uid="uid://b34lpkc5do1qy" path="res://Data/Resources/Masks/RabbitMask.tres" id="4_loqsb"]
+[ext_resource type="Resource" uid="uid://b21pqwttwrl2b" path="res://Data/Resources/Masks/SquidMask.tres" id="5_8ew13"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4ef4"]
 atlas = ExtResource("2_qdver")
@@ -53,6 +57,7 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_fq6r7")
+masks = Array[ExtResource("2_mmnql")]([ExtResource("3_m40r1"), ExtResource("4_loqsb"), ExtResource("5_8ew13")])
 
 [node name="BaseSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -62,7 +67,6 @@ sprite_frames = SubResource("SpriteFrames_fq6r7")
 shape = SubResource("CircleShape2D_fq6r7")
 
 [node name="Mask" parent="." instance=ExtResource("3_qdver")]
-mask_index = 8
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
