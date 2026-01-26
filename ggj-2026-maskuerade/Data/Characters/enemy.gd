@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Enemy
 
 #Enemy Stats
 @export var max_hp := 10
-@export var damage := 5
+@export var damage := 2
 @export var speed := 5.0
 
 @onready var state_debug_label: Label = %StateDebugLabel
