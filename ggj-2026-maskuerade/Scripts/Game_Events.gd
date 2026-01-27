@@ -5,3 +5,5 @@ extends Node
 signal room_exited
 
 signal shot_fired(shoot_position: Vector2, mouse_pos: Vector2, mask_index: String)
+signal enemy_hit(projectile: Projectile, enemy: Enemy)
+signal wall_hit(projectile: Projectile, position: Vector2, normal: Vector2)
