@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3608fwt5r0iw"]
+[gd_scene load_steps=19 format=3 uid="uid://c3608fwt5r0iw"]
 
 [ext_resource type="Script" uid="uid://d17n0g8hiquq2" path="res://Data/Characters/player.gd" id="1_fq6r7"]
 [ext_resource type="Script" uid="uid://cqkn2eqhcgslb" path="res://Scripts/Equipment/MaskResource.gd" id="2_mmnql"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhhsriv8n2y0" path="res://Data/Characters/mask.tscn" id="3_qdver"]
 [ext_resource type="Resource" uid="uid://b34lpkc5do1qy" path="res://Data/Resources/Masks/RabbitMask.tres" id="4_loqsb"]
 [ext_resource type="Resource" uid="uid://b21pqwttwrl2b" path="res://Data/Resources/Masks/SquidMask.tres" id="5_8ew13"]
+[ext_resource type="Texture2D" uid="uid://cgew3q3qogoku" path="res://Data/Characters/Wizard.png" id="7_m40r1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4ef4"]
 atlas = ExtResource("2_qdver")
@@ -49,6 +50,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_loqsb"]
+_data = [Vector2(0, 1), 0.0, -0.21629633, 0, 1, Vector2(0.4623288, 0.9), -1.1112052, -1.1112052, 0, 0, Vector2(0.7636987, 0.12727273), -1.2844578, -1.2844578, 0, 0, Vector2(1, 0), -0.53860354, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ew13"]
+curve = SubResource("Curve_loqsb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3y0lj"]
+emission_shape_offset = Vector3(0, 0, -1)
+gravity = Vector3(0, 0, 0)
+color = Color(0, 1, 1, 0.45882353)
+alpha_curve = SubResource("CurveTexture_8ew13")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fq6r7"]
 radius = 4.0
 
@@ -56,6 +70,7 @@ radius = 4.0
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_fq6r7")
 masks = Array[ExtResource("2_mmnql")]([ExtResource("3_m40r1"), ExtResource("4_loqsb"), ExtResource("5_8ew13")])
 
@@ -63,12 +78,21 @@ masks = Array[ExtResource("2_mmnql")]([ExtResource("3_m40r1"), ExtResource("4_lo
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fq6r7")
 
+[node name="AfterImage" type="GPUParticles2D" parent="BaseSprite"]
+emitting = false
+amount = 12
+texture = ExtResource("7_m40r1")
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_3y0lj")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fq6r7")
 
 [node name="Mask" parent="." instance=ExtResource("3_qdver")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_qdver")

@@ -3,7 +3,7 @@ extends Node2D
 @export var rooms : Array[PackedScene]
 @export var player_scene: PackedScene
 
-@onready var player: CharacterBody2D 
+@onready var player: Player 
 @onready var current_room: Node2D = %CurrentRoom
 @onready var game_ui: Control = %GameUI
 @onready var main_menu: Control = %MainMenu
@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 	
 func _on_room_exited():
+	player.LockPlayer()
 	# Tween the room transition node's color
 	var t = create_tween()
 	t.tween_property(transition, "modulate", Color(), 0.1)
@@ -27,7 +28,7 @@ func _on_room_exited():
 	for i in current_room.get_children():
 		i.queue_free()
 	current_room.call_deferred("add_child", inst)
-	
+	player.UnlockPlayer()
 	# Old line to pull player spawn location
 	#player.global_position = inst.get_entrance_pos()
 	

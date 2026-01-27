@@ -47,5 +47,4 @@ tile_set = SubResource("TileSet_ei8ht")
 [node name="DoorArea" parent="." instance=ExtResource("2_o38ke")]
 visible = true
 position = Vector2(128, 64)
-collision_layer = 1
-collision_mask = 1
+monitoring = true

@@ -11,7 +11,8 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 
 func _on_enemies_cleared():
-	set_collision_layer_value(1, true)
-	set_collision_mask_value(1, true)
+	monitoring = true
+	#set_collision_layer_value(1, true)
+	#set_collision_mask_value(1, true)
 	show()
 	poof_particle.emitting = true
