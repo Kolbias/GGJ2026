@@ -26,6 +26,10 @@ func _ready():
 	GameEvents.room_exited.connect(_remove_all)
 
 func _on_shot_fired(shoot_point, mouse_position, mask_type):
+	var shot_type = projectiles.get_or_add(mask_type, [])
+	print(shot_type.size())
+	if not shot_type.size() < projectile_defs[mask_type].max_count:
+		return
 	#Instantiate and set properties
 	var inst = projectile_scene.instantiate()
 	inst.position = shoot_point
@@ -37,7 +41,7 @@ func _on_shot_fired(shoot_point, mouse_position, mask_type):
 	#Add to scene at end of current frame
 	parent_scene.add_child.call_deferred(inst)
 	#Append to dictionary
-	var shot_type = projectiles.get_or_add(mask_type, [])
+	
 	shot_type.append(inst)
 	#print(projectiles)
 
