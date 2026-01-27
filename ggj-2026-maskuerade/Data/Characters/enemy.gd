@@ -58,4 +58,6 @@ func _on_hitbox_area_area_entered(area: Area2D) -> void:
 		current_hp -= area.damage
 		if current_hp <= 0:
 			queue_free()
+			GameEvents.emit_signal("enemy_killed")
+			
 		#area.queue_free()
