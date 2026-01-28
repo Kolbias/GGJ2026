@@ -47,7 +47,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="Curve" id="Curve_loqsb"]
@@ -77,6 +77,8 @@ masks = Array[ExtResource("2_mmnql")]([ExtResource("3_m40r1"), ExtResource("4_lo
 [node name="BaseSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fq6r7")
+animation = &"run"
+frame_progress = 0.58596295
 
 [node name="AfterImage" type="GPUParticles2D" parent="BaseSprite"]
 emitting = false
