@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=14 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
 [ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://cy2elpm8ib22q" path="res://Scripts/game_ui.gd" id="8_vm3ls"]
 [ext_resource type="Texture2D" uid="uid://fd1atvnl0jrw" path="res://Data/Assets/HealthBarFill.png" id="9_vm3ls"]
 [ext_resource type="Texture2D" uid="uid://c2gwrktyj5uoh" path="res://Data/Assets/ManaBarFill.png" id="11_461sl"]
+[ext_resource type="Texture2D" uid="uid://21lhfyckku7u" path="res://Data/Assets/TitleArt.png" id="12_nq7dk"]
+[ext_resource type="FontFile" uid="uid://bgjmpciex6n01" path="res://Data/Assets/Pixeltype.ttf" id="13_84hfh"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfkfy")
@@ -93,6 +95,15 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TitleArt" type="TextureRect" parent="CanvasLayer/GameUI/MainMenu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = -64.0
+offset_top = -99.0
+offset_right = 64.0
+offset_bottom = 29.0
+texture = ExtResource("12_nq7dk")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUI/MainMenu"]
 layout_mode = 1
 anchors_preset = 13
@@ -108,11 +119,13 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("13_84hfh")
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/GameUI/MainMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("13_84hfh")
 text = "Quit
 "
 
