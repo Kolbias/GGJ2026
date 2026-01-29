@@ -9,6 +9,8 @@ class_name Projectile
 
 var mask_type = "default"
 var previous_position: Vector2
+@onready var sprite = $Sprite2D
+@onready var light = %PointLight2D
 
 func _ready():
 	previous_position = global_position
@@ -61,3 +63,8 @@ func _on_area_entered(area: Node):
 
 func update_previous_position():
 	previous_position = global_position
+
+
+func set_projectile_color(color: Color) -> void:
+	sprite.modulate = color
+	light.color = color

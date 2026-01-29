@@ -11,4 +11,5 @@ region = Rect2(96, 0, 16, 16)
 script = ExtResource("2_5k6bn")
 maskName = "Squid Mask"
 maskSprite = SubResource("AtlasTexture_2ts6q")
+maskType = "color_spray"
 metadata/_custom_type_script = "uid://cqkn2eqhcgslb"

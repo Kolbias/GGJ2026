@@ -50,7 +50,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		if current_hp <= 0:
 			print("You are died!")
 			hide()
-			
+
 func _MoveToNextMask():
 	if not masks.is_empty():
 		currentMaskIndex = wrapi(currentMaskIndex + 1, 0, masks.size())
