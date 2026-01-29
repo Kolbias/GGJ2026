@@ -11,5 +11,5 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("2_dhavb")
 maskName = "Rabbit Mask"
 maskSprite = SubResource("AtlasTexture_phwgo")
-maskType = "bounce"
+projectileType = "bounce"
 metadata/_custom_type_script = "uid://cqkn2eqhcgslb"
