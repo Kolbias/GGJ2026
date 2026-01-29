@@ -5,5 +5,6 @@ extends Control
 @onready var hp_bar: TextureProgressBar = $MarginContainer/HBoxContainer/HPBar
 
 func _process(_delta: float) -> void:
-	hp_bar.max_value = player.max_hp
-	hp_bar.value = player.current_hp
+	if player:
+		hp_bar.max_value = player.max_hp
+		hp_bar.value = player.current_hp

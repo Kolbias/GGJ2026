@@ -54,11 +54,12 @@ func _on_player_detection_area_body_entered(body: Node2D) -> void:
 		change_state(State.CHASE)
 
 #func _on_hitbox_area_area_entered(area: Area2D) -> void:
-	#if area.is_in_group("projectile"):
-		#current_hp -= area.damage
-		#if current_hp <= 0:
-			#queue_free()
-		#area.queue_free()
+#	if area.is_in_group("projectile"):
+#		current_hp -= area.damage
+#		if current_hp <= 0:
+#			queue_free()
+#			GameEvents.emit_signal("enemy_killed")
+			
 
 func take_damage(attack: Attack):
 	current_hp -= attack.attack_damage

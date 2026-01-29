@@ -10,7 +10,7 @@ var projectile_defs = {
 	"default": {
 		speed = 5.0,
 		damage = 2,
-		max_count = 5
+		max_count = 20
 	},
 	"bounce": {
 		speed = 3.0,
