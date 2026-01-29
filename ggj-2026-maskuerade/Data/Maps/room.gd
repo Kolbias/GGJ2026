@@ -9,7 +9,7 @@ var enemy_count: int
 
 func _ready() -> void:
 	GameEvents.connect("enemy_killed", _on_enemy_killed)
-	var enemy_count = enemies.get_child_count()
+	enemy_count = enemies.get_child_count()
 	print("Enemy Count: " + str(enemy_count))
 	if enemy_count > 0:
 		enemies_on_floor = true

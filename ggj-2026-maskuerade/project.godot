@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://Scripts/Game_Events.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/resizable=false
