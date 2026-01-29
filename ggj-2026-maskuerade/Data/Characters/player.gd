@@ -67,7 +67,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			print("You are died!")
 			currentState = PlayerState.Dead
 			hide()
-			
+
 func _MoveToNextMask():
 	if not masks.is_empty():
 		currentMaskIndex = wrapi(currentMaskIndex + 1, 0, masks.size())

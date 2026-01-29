@@ -16,6 +16,11 @@ var projectile_defs = {
 		speed = 3.0,
 		damage = 1,
 		max_count = 3
+	},
+	"color_spray": {
+		speed = 2.5,
+		damage = 1,
+		max_count = 6
 	}
 }
 
@@ -30,6 +35,22 @@ func _on_shot_fired(shoot_point, mouse_position, mask_type):
 	print(shot_type.size())
 	if not shot_type.size() < projectile_defs[mask_type].max_count:
 		return
+	match mask_type:
+		"color_spray":
+			var shots = _scatter_shot(shoot_point, mouse_position)
+			var colors = [
+				Color.RED, Color.ORANGE, 
+				Color.YELLOW, Color.GREEN,
+				Color.BLUE, Color.VIOLET
+				]
+			colors.shuffle()
+			for i in range(6):
+				var proj = _fire_projectile(shoot_point, shots[i], mask_type)
+				proj.set_projectile_color.call_deferred(colors[i])
+		_: _fire_projectile(shoot_point, mouse_position, mask_type)
+
+func _fire_projectile(shoot_point, mouse_position, mask_type) -> Projectile:
+	var shot_type = projectiles.get_or_add(mask_type, [])
 	#Instantiate and set properties
 	var inst = projectile_scene.instantiate()
 	inst.position = shoot_point
@@ -41,9 +62,8 @@ func _on_shot_fired(shoot_point, mouse_position, mask_type):
 	#Add to scene at end of current frame
 	parent_scene.add_child.call_deferred(inst)
 	#Append to dictionary
-	
 	shot_type.append(inst)
-	#print(projectiles)
+	return inst
 
 func _physics_process(_delta: float) -> void:
 	var to_remove = []
@@ -73,6 +93,9 @@ func _projectile_offscreen(projectile):
 
 func _on_enemy_hit(projectile: Projectile, enemy: Enemy):
 	print(projectile, " hit ", enemy)
+	var attack = Attack.new(projectile.damage, 0, projectile.global_position)
+	if enemy.has_method("take_damage"):
+		enemy.take_damage(attack)
 	_safe_remove(projectile)
 
 func _on_wall_hit(projectile: Projectile, position: Vector2, normal: Vector2):
@@ -86,6 +109,19 @@ func _on_wall_hit(projectile: Projectile, position: Vector2, normal: Vector2):
 
 func _remove_all():
 	cull = true
-	#for key in projectiles:
-		#for projectile in projectiles[key]:
-			#_safe_remove(projectile)
+
+func _scatter_shot(origin: Vector2, target: Vector2) -> Array:
+	var points = []
+	var direction_to_target = target - origin
+	var radius = direction_to_target.length()
+	var arc = 0.5 #radians
+	var target_angle = atan2(direction_to_target.y, direction_to_target.x)
+	var min_angle = target_angle - arc
+	var max_angle = target_angle + arc
+	
+	for i in range (6):
+		var random_angle = randf_range(min_angle, max_angle)
+		var local_point = Vector2(cos(random_angle), sin(random_angle)) * radius
+		var global_point = origin + local_point
+		points.append(global_point)
+	return points

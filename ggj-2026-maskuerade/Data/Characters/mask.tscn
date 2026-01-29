@@ -13,7 +13,7 @@ unique_name_in_owner = true
 
 [node name="ShootPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-rotation = 94.248314
+rotation = 56.9364
 
 [node name="DebugSprite" type="Sprite2D" parent="ShootPoint"]
 position = Vector2(16.494, 0)
