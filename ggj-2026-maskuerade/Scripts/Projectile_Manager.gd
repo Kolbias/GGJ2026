@@ -13,9 +13,10 @@ var projectile_defs = {
 		max_count = 20
 	},
 	"bounce": {
-		speed = 3.0,
+		speed = 2.0,
 		damage = 1,
-		max_count = 3
+		max_count = 3,
+		max_bounces = 8
 	},
 	"color_spray": {
 		speed = 2.5,
@@ -92,7 +93,7 @@ func _projectile_offscreen(projectile):
 	_safe_remove(projectile)
 
 func _on_enemy_hit(projectile: Projectile, enemy: Enemy):
-	print(projectile, " hit ", enemy)
+	print(projectile.mask_type, " hit ", enemy, " for ", projectile.damage)
 	var attack = Attack.new(projectile.damage, 0, projectile.global_position)
 	if enemy.has_method("take_damage"):
 		enemy.take_damage(attack)
@@ -102,8 +103,18 @@ func _on_wall_hit(projectile: Projectile, position: Vector2, normal: Vector2):
 	var mask_type = projectile.mask_type
 	match mask_type:
 		"bounce":
-			print("bounce at ", position)
-			projectile.dir = projectile.dir.bounce(normal.normalized())
+			if projectile.bounces < projectile_defs["bounce"].max_bounces:
+				if normal.is_normalized():
+					projectile.dir = projectile.dir.bounce(normal)
+				else:
+					projectile.dir = -projectile.dir
+				projectile.bounces += 1
+				projectile.speed += 0.5
+				projectile.damage += 0.5
+				projectile.light.energy += 0.3
+				projectile.set_projectile_color(Color(1, 0.7, 0.7))
+			else:
+				_safe_remove(projectile)
 		_:
 			_safe_remove(projectile)
 
