@@ -69,3 +69,8 @@ func update_previous_position():
 func set_projectile_color(color: Color) -> void:
 	sprite.modulate = color
 	light.color = color
+
+func home_towards():
+	var target = get_global_mouse_position()
+	var target_dir = (target - global_position).normalized()
+	dir = dir.lerp(target_dir, 0.2).normalized()

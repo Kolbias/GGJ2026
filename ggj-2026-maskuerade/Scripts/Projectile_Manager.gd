@@ -22,11 +22,18 @@ var projectile_defs = {
 		speed = 2.5,
 		damage = 1,
 		max_count = 6
+	},
+	"tracker": {
+		speed = 5.0,
+		damage = 2,
+		max_count = 6
 	}
 }
 
 func _ready():
 	GameEvents.shot_fired.connect(_on_shot_fired)
+	GameEvents.enemy_shot_fired.connect(_on_enemy_shot_fired)
+	GameEvents.player_hit.connect(_on_player_hit)
 	GameEvents.enemy_hit.connect(_on_enemy_hit)
 	GameEvents.wall_hit.connect(_on_wall_hit)
 	GameEvents.room_exited.connect(_remove_all)
@@ -71,6 +78,8 @@ func _physics_process(_delta: float) -> void:
 	for key in projectiles:
 		for projectile in projectiles[key]:
 			if not cull:
+				if key == "tracker":
+					projectile.home_towards()
 				projectile.global_position += projectile.dir * projectile.speed
 				if projectile.position == projectile.previous_position:
 					to_remove.append(projectile)
@@ -136,3 +145,9 @@ func _scatter_shot(origin: Vector2, target: Vector2) -> Array:
 		var global_point = origin + local_point
 		points.append(global_point)
 	return points
+
+func _on_enemy_shot_fired(projectile: Projectile, enemy: Enemy):
+	pass
+
+func _on_player_hit(projectile: Projectile, player_instance: Player):
+	pass

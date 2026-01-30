@@ -11,5 +11,6 @@ region = Rect2(16, 0, 16, 16)
 script = ExtResource("1_iq7ue")
 maskName = "Fox Mask"
 maskSprite = SubResource("AtlasTexture_t81iq")
+projectileType = "tracker"
 projectileFireRate = 3.0
 metadata/_custom_type_script = "uid://cqkn2eqhcgslb"
