@@ -101,11 +101,11 @@ func _on_enemy_hit(projectile: Projectile, enemy: Enemy):
 func _on_wall_hit(projectile: Projectile, position: Vector2, normal: Vector2):
 	var mask_type = projectile.mask_type
 	match mask_type:
-		"default":
-			_safe_remove(projectile)
 		"bounce":
 			print("bounce at ", position)
-			projectile.dir = projectile.dir.bounce(normal)
+			projectile.dir = projectile.dir.bounce(normal.normalized())
+		_:
+			_safe_remove(projectile)
 
 func _remove_all():
 	cull = true

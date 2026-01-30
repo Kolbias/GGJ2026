@@ -11,3 +11,5 @@ signal wall_hit(projectile: Projectile, position: Vector2, normal: Vector2)
 
 signal enemy_killed
 signal enemies_cleared
+
+var rooms_cleared := 0

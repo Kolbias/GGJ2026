@@ -12,7 +12,6 @@ extends Node2D
 func _ready() -> void:
 	GameEvents.connect("room_exited", _on_room_exited)
 	
-	
 func _on_room_exited():
 	player.LockPlayer()
 	# Tween the room transition node's color
