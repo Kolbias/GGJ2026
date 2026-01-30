@@ -23,4 +23,4 @@ func _on_enemy_killed():
 	print("Enemy Count: " + str(enemy_count))
 	if enemy_count <= 0:
 		GameEvents.emit_signal("enemies_cleared")
-	
+		GameEvents.levels_cleared += 1
