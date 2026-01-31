@@ -1,12 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=17 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
 [ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
 [ext_resource type="PackedScene" uid="uid://bomu06x5mw8gn" path="res://Data/Maps/room_test.tscn" id="2_5ti13"]
-[ext_resource type="PackedScene" uid="uid://d1u81yilej0nj" path="res://Data/Maps/room_1.tscn" id="2_j5ytp"]
-[ext_resource type="PackedScene" uid="uid://bjeaoc8opheyp" path="res://Data/Maps/room_2.tscn" id="3_0d2ig"]
+[ext_resource type="PackedScene" uid="uid://d1u81yilej0nj" path="res://Data/Maps/Level1/room_1.tscn" id="2_j5ytp"]
+[ext_resource type="PackedScene" uid="uid://bjeaoc8opheyp" path="res://Data/Maps/Level1/room_2.tscn" id="3_0d2ig"]
 [ext_resource type="Script" uid="uid://dpfx2nnlrswvn" path="res://Scripts/Projectile_Manager.gd" id="3_nm2yv"]
 [ext_resource type="Texture2D" uid="uid://d11c44og4ypk4" path="res://Data/Assets/light.png" id="4_dwg7r"]
+[ext_resource type="PackedScene" uid="uid://bdu5ddm12wfkn" path="res://Data/Maps/Level2/room_1.tscn" id="4_xnhx3"]
+[ext_resource type="PackedScene" uid="uid://bmh5rm65y1n34" path="res://Data/Maps/Level2/room_2.tscn" id="5_57hf1"]
+[ext_resource type="PackedScene" uid="uid://bcvuun35pwt2k" path="res://Data/Maps/Level3/room_1.tscn" id="6_57hf1"]
 [ext_resource type="Texture2D" uid="uid://ded8j6ehtpej0" path="res://Data/Assets/HealthBarOver.png" id="8_clt4m"]
 [ext_resource type="Script" uid="uid://cy2elpm8ib22q" path="res://Scripts/game_ui.gd" id="8_vm3ls"]
 [ext_resource type="Texture2D" uid="uid://fd1atvnl0jrw" path="res://Data/Assets/HealthBarFill.png" id="9_vm3ls"]
@@ -16,7 +19,11 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfkfy")
-rooms = Array[PackedScene]([ExtResource("2_j5ytp"), ExtResource("3_0d2ig")])
+rooms_level_1 = Array[PackedScene]([ExtResource("2_j5ytp"), ExtResource("3_0d2ig")])
+rooms_level_2 = Array[PackedScene]([ExtResource("4_xnhx3"), ExtResource("5_57hf1")])
+rooms_level_3 = Array[PackedScene]([ExtResource("6_57hf1")])
+level_2_threshold = 3
+level_3_threshold = 5
 player_scene = ExtResource("1_0hdeg")
 
 [node name="CurrentRoom" type="Node2D" parent="."]

@@ -127,7 +127,7 @@ func _on_wall_hit(projectile: Projectile, position: Vector2, normal: Vector2):
 		_:
 			_safe_remove(projectile)
 
-func _remove_all():
+func _remove_all(_room): # Add in the _room to stop throwing error
 	cull = true
 
 func _scatter_shot(origin: Vector2, target: Vector2) -> Array:
