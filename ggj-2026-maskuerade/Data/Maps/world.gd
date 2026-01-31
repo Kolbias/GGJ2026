@@ -6,7 +6,6 @@ extends Node2D
 @export var level_2_threshold: int = 1
 @export var level_3_threshold: int = 2
 
-
 @export var player_scene: PackedScene
 
 @onready var player: Player 

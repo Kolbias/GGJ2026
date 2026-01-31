@@ -54,11 +54,11 @@ tile_set = SubResource("TileSet_ei8ht")
 
 [node name="DoorArea" parent="Doors" instance=ExtResource("3_pn1et")]
 visible = false
-position = Vector2(48, 192)
+position = Vector2(32, 32)
 
 [node name="DoorArea2" parent="Doors" instance=ExtResource("3_pn1et")]
 visible = false
-position = Vector2(201, 165)
+position = Vector2(224, 224)
 
 [node name="EntrancePos" type="Node2D" parent="."]
 unique_name_in_owner = true

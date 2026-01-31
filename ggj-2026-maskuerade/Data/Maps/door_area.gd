@@ -14,11 +14,12 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 
 func _on_enemies_cleared():
-	monitoring = true
-	#set_collision_layer_value(1, true)
-	#set_collision_mask_value(1, true)
-	show()
 	poof_particle.emitting = true
+	show()
+	
+	# Give some grace time before allowing player to enter the next room
+	await get_tree().create_timer(2.5).timeout
+	monitoring = true
 
 func set_room(new_room: PackedScene):
 	next_room = new_room

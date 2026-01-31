@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://67f70nsheois"]
 
 [ext_resource type="Script" uid="uid://dulnk2vc83x6w" path="res://Data/Characters/enemy.gd" id="1_wr5no"]
-[ext_resource type="SpriteFrames" uid="uid://bgpqplk7imbm7" path="res://Data/Characters/MaskEnemyAnim.tres" id="2_wr5no"]
+[ext_resource type="SpriteFrames" uid="uid://bgpqplk7imbm7" path="res://Data/Characters/MasqEnemyAnim.tres" id="2_wr5no"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wr5no"]
 radius = 5.0990195
