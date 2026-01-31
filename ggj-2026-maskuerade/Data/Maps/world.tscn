@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=19 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
 [ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c2gwrktyj5uoh" path="res://Data/Assets/ManaBarFill.png" id="11_461sl"]
 [ext_resource type="Texture2D" uid="uid://21lhfyckku7u" path="res://Data/Assets/TitleArt.png" id="12_nq7dk"]
 [ext_resource type="FontFile" uid="uid://bgjmpciex6n01" path="res://Data/Assets/Pixeltype.ttf" id="13_84hfh"]
+[ext_resource type="AudioStream" uid="uid://ruglohgdldit" path="res://Data/Assets/Sounds/VizardMusic.ogg" id="18_6lyjj"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfkfy")
@@ -154,6 +155,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_6lyjj")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/PlayButton" to="CanvasLayer/GameUI" method="_on_play_button_pressed"]

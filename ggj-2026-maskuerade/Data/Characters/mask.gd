@@ -3,6 +3,8 @@ extends Node2D
 
 class_name Mask
 
+@onready var shot_sound: AudioStreamPlayer2D = $AudioPlayerShot
+
 var currentMask : MaskResource = preload("res://Data/Resources/Masks/EmptyMask.tres")
 
 var currentWeaponTimer : float = 0.0
@@ -28,6 +30,8 @@ func _process(delta: float) -> void:
 			currentWeaponTimer = (1.0 / currentMask.projectileFireRate)
 			canFireProjectile = false
 			GameEvents.shot_fired.emit(shoot_point.global_position, get_global_mouse_position(), currentMask.projectileType)
+			shot_sound.pitch_scale = randf_range(0.9, 1.1)
+			shot_sound.play()
 
 
 func SetMask(maskRes : MaskResource):

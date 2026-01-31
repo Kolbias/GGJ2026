@@ -1,14 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://caqf5ytgydlqc"]
+[gd_scene load_steps=9 format=3 uid="uid://caqf5ytgydlqc"]
 
-[ext_resource type="Texture2D" uid="uid://d3jhj35k4pk5j" path="res://Data/Maps/LadderTile.png" id="1_iordi"]
 [ext_resource type="Script" uid="uid://dr007or42h3ht" path="res://Scripts/Environment/SpawnPoint.gd" id="1_yijqg"]
 [ext_resource type="Texture2D" uid="uid://d11c44og4ypk4" path="res://Data/Assets/light.png" id="2_l82am"]
+[ext_resource type="Texture2D" uid="uid://d4jhnuh16tci3" path="res://Data/Maps/SpawnerSpriteSheet.png" id="2_yijqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bmll"]
+atlas = ExtResource("2_yijqg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kf7l"]
+atlas = ExtResource("2_yijqg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp8ei"]
+atlas = ExtResource("2_yijqg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir2ic"]
+atlas = ExtResource("2_yijqg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xocre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bmll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kf7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp8ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir2ic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="SpawnPoint" type="Node2D"]
 script = ExtResource("1_yijqg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_iordi")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xocre")
+autoplay = "default"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.9479051, 0.00073255005, 0.9478987, 1)
