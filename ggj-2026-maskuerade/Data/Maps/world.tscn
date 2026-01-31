@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=18 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
 [ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ded8j6ehtpej0" path="res://Data/Assets/HealthBarOver.png" id="8_clt4m"]
 [ext_resource type="Script" uid="uid://cy2elpm8ib22q" path="res://Scripts/game_ui.gd" id="8_vm3ls"]
 [ext_resource type="Texture2D" uid="uid://fd1atvnl0jrw" path="res://Data/Assets/HealthBarFill.png" id="9_vm3ls"]
+[ext_resource type="Script" uid="uid://cewjqb31guebl" path="res://Scripts/Enemy_Manager.gd" id="10_rwune"]
 [ext_resource type="Texture2D" uid="uid://c2gwrktyj5uoh" path="res://Data/Assets/ManaBarFill.png" id="11_461sl"]
 [ext_resource type="Texture2D" uid="uid://21lhfyckku7u" path="res://Data/Assets/TitleArt.png" id="12_nq7dk"]
 [ext_resource type="FontFile" uid="uid://bgjmpciex6n01" path="res://Data/Assets/Pixeltype.ttf" id="13_84hfh"]
@@ -33,6 +34,9 @@ unique_name_in_owner = true
 
 [node name="Projectile_Manager" type="Node" parent="."]
 script = ExtResource("3_nm2yv")
+
+[node name="Enemy_Manager" type="Node" parent="."]
+script = ExtResource("10_rwune")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.38170326, 0.38170323, 0.38170323, 1)

@@ -59,9 +59,9 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hurtbox_body_entered(body: Node2D) -> void:
+func _on_hurtbox_body_entered(body: Enemy) -> void:
 	if body.is_in_group("enemy") and not currentState == PlayerState.Boosting:
-		current_hp -= body.damage 
+		current_hp -= body.enemy_Resource.damage 
 		print("Player HP: " + str(current_hp))
 		if current_hp <= 0:
 			print("You are died!")

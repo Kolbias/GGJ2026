@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Enemy_Resource" load_steps=3 format=3 uid="uid://dby8op77ns3ja"]
+
+[ext_resource type="Script" uid="uid://206h3y8h5xa5" path="res://Scripts/AI/Enemy_Resource.gd" id="1_muuk3"]
+[ext_resource type="SpriteFrames" uid="uid://dp6i34htrbhn3" path="res://Data/Characters/ClownEnemyAnim.tres" id="1_x2ace"]
+
+[resource]
+script = ExtResource("1_muuk3")
+name = "Clown"
+Visuals = ExtResource("1_x2ace")
+max_hp = 20
+damage = 4
+speed = 14.0
+metadata/_custom_type_script = "uid://206h3y8h5xa5"

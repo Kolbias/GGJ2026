@@ -17,6 +17,7 @@ bg_color = Color(1, 0.33801875, 0.3195942, 1)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_wr5no")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["projectile"]]
@@ -28,10 +29,6 @@ frame_progress = 0.20772804
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wr5no")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
 
 [node name="StateDebugLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -80,6 +77,5 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_wr5no")
 show_percentage = false
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]

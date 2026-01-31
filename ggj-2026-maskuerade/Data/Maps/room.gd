@@ -3,17 +3,20 @@ class_name Room
 
 @export var entrance_pos: Node2D
 @export var doors_node: Node2D
-
-@onready var enemies: Node2D = %Enemies
+@export var spawners_node: Node2D
 
 var enemies_on_floor : bool = false
-var enemy_count: int
+var enemy_count: int = 0
 var next_room : PackedScene
 
 func _ready() -> void:
 	GameEvents.connect("room_sent", _on_room_sent)
 	GameEvents.connect("enemy_killed", _on_enemy_killed)
-	enemy_count = enemies.get_child_count()
+	if spawners_node != null && spawners_node.get_child_count() > 0:
+		for spawner : SpawnPoint in spawners_node.get_children():
+			enemy_count += spawner.SpawnCount
+			spawner.allowedToSpawn = true
+	
 	print("Enemy Count: " + str(enemy_count))
 	if enemy_count > 0:
 		enemies_on_floor = true
@@ -39,7 +42,7 @@ func _on_room_sent(room : PackedScene):
 	
 	
 func _on_enemy_killed():
-	enemy_count = enemies.get_child_count() - 1
+	enemy_count -= 1
 	print("Enemy Count: " + str(enemy_count))
 	if enemy_count <= 0:
 		GameEvents.emit_signal("enemies_cleared")

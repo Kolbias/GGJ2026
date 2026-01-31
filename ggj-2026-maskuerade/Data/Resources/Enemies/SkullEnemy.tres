@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Enemy_Resource" load_steps=3 format=3 uid="uid://6j0t3408u23e"]
+
+[ext_resource type="Script" uid="uid://206h3y8h5xa5" path="res://Scripts/AI/Enemy_Resource.gd" id="1_a35mn"]
+[ext_resource type="SpriteFrames" uid="uid://dqsrme6ev1o4o" path="res://Data/Characters/SkullEnemyAnim.tres" id="1_sp30c"]
+
+[resource]
+script = ExtResource("1_a35mn")
+name = "Skull"
+Visuals = ExtResource("1_sp30c")
+max_hp = 4
+damage = 1
+speed = 12.0
+metadata/_custom_type_script = "uid://206h3y8h5xa5"

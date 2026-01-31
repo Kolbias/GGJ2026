@@ -108,7 +108,7 @@ func _on_enemy_hit(projectile: Projectile, enemy: Enemy):
 		enemy.take_damage(attack)
 	_safe_remove(projectile)
 
-func _on_wall_hit(projectile: Projectile, position: Vector2, normal: Vector2):
+func _on_wall_hit(projectile: Projectile, _position: Vector2, normal: Vector2):
 	var mask_type = projectile.mask_type
 	match mask_type:
 		"bounce":
@@ -146,8 +146,8 @@ func _scatter_shot(origin: Vector2, target: Vector2) -> Array:
 		points.append(global_point)
 	return points
 
-func _on_enemy_shot_fired(projectile: Projectile, enemy: Enemy):
+func _on_enemy_shot_fired(_projectile: Projectile, _enemy: Enemy):
 	pass
 
-func _on_player_hit(projectile: Projectile, player_instance: Player):
+func _on_player_hit(_projectile: Projectile, _player_instance: Player):
 	pass

@@ -11,7 +11,11 @@ signal player_hit(projectile: Projectile, player_instance: Player)
 signal enemy_hit(projectile: Projectile, enemy: Enemy)
 signal wall_hit(projectile: Projectile, position: Vector2, normal: Vector2)
 
+signal enemy_death(enemyRef : Enemy)
 signal enemy_killed
 signal enemies_cleared
 
 var rooms_cleared := 0
+
+signal enemy_spawn(spawnPosition: Vector2, enemyResource : Enemy_Resource)
+signal clear_enemies()
