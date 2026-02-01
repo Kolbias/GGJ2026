@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://d1u81yilej0nj"]
+[gd_scene load_steps=8 format=4 uid="uid://d1u81yilej0nj"]
 
 [ext_resource type="Script" uid="uid://bw53ymcahqwqa" path="res://Data/Maps/room.gd" id="1_2y0xv"]
 [ext_resource type="Texture2D" uid="uid://ck1vtdqaim0lw" path="res://Data/Maps/Tilemap.png" id="2_nftkw"]
 [ext_resource type="PackedScene" uid="uid://xh0fn8jpscvj" path="res://Data/Maps/door_area.tscn" id="3_pn1et"]
 [ext_resource type="PackedScene" uid="uid://caqf5ytgydlqc" path="res://Data/Environment/Spawner.tscn" id="5_n4jnn"]
 [ext_resource type="Resource" uid="uid://d4iqq40j153km" path="res://Data/Resources/Enemies/MaskEnemy.tres" id="6_5x83a"]
-[ext_resource type="Resource" uid="uid://6j0t3408u23e" path="res://Data/Resources/Enemies/SkullEnemy.tres" id="7_27k75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p5gb"]
 texture = ExtResource("2_nftkw")
@@ -70,19 +69,7 @@ position = Vector2(232, 136)
 [node name="EnemySpawners" type="Node2D" parent="."]
 
 [node name="SpawnPoint" parent="EnemySpawners" instance=ExtResource("5_n4jnn")]
-position = Vector2(63, 71)
+position = Vector2(192, 192)
 CharacterToSpawn = ExtResource("6_5x83a")
 SpawnCount = 2
 SpawnRate = 0.3
-
-[node name="SpawnPoint2" parent="EnemySpawners" instance=ExtResource("5_n4jnn")]
-position = Vector2(104, 191)
-CharacterToSpawn = ExtResource("6_5x83a")
-SpawnCount = 2
-SpawnRate = 0.3
-
-[node name="SpawnPoint3" parent="EnemySpawners" instance=ExtResource("5_n4jnn")]
-position = Vector2(200, 70)
-CharacterToSpawn = ExtResource("7_27k75")
-SpawnCount = 8
-SpawnRate = 0.7

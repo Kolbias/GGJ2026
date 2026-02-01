@@ -9,7 +9,7 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_dhavb")
-maskName = "Rabbit Mask"
+maskName = "Bounce"
 maskSprite = SubResource("AtlasTexture_phwgo")
 projectileType = "bounce"
 metadata/_custom_type_script = "uid://cqkn2eqhcgslb"

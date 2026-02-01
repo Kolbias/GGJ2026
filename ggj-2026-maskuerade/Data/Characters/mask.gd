@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 func SetMask(maskRes : MaskResource):
 	currentMask = maskRes
 	_UpdateSwitchedMask()
+	GameEvents.emit_signal("mask_changed", maskRes)
 
 func _UpdateSwitchedMask():
 	mask_sprite.texture = currentMask.maskSprite

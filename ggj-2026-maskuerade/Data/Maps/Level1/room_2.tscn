@@ -73,9 +73,3 @@ position = Vector2(63, 71)
 CharacterToSpawn = ExtResource("5_oaflx")
 SpawnCount = 5
 SpawnRate = 0.3
-
-[node name="SpawnPoint" parent="EnemySpawners/SpawnPoint" instance=ExtResource("4_7hrxa")]
-position = Vector2(152, 123)
-CharacterToSpawn = ExtResource("5_oaflx")
-SpawnCount = 3
-SpawnRate = 0.3

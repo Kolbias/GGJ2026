@@ -55,9 +55,11 @@ tile_set = SubResource("TileSet_ei8ht")
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="DoorArea" parent="Doors" instance=ExtResource("3_x5i44")]
+visible = false
 position = Vector2(32, 128)
 
 [node name="DoorArea2" parent="Doors" instance=ExtResource("3_x5i44")]
+visible = false
 position = Vector2(136, 32)
 
 [node name="EntrancePos" type="Node2D" parent="."]
@@ -68,12 +70,6 @@ position = Vector2(24, 136)
 
 [node name="SpawnPoint" parent="EnemySpawners" instance=ExtResource("4_h8hsk")]
 position = Vector2(223, 34)
-CharacterToSpawn = ExtResource("5_x5i44")
-SpawnCount = 12
-SpawnRate = 0.9
-
-[node name="SpawnPoint2" parent="EnemySpawners" instance=ExtResource("4_h8hsk")]
-position = Vector2(223, 194)
 CharacterToSpawn = ExtResource("5_x5i44")
 SpawnCount = 12
 SpawnRate = 0.9

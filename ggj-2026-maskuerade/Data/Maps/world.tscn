@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqkw75bd3y1re"]
+[gd_scene load_steps=29 format=3 uid="uid://cqkw75bd3y1re"]
 
 [ext_resource type="PackedScene" uid="uid://c3608fwt5r0iw" path="res://Data/Characters/player.tscn" id="1_0hdeg"]
 [ext_resource type="Script" uid="uid://cami1rfp1yqo5" path="res://Data/Maps/world.gd" id="1_rfkfy"]
@@ -7,23 +7,33 @@
 [ext_resource type="PackedScene" uid="uid://bjeaoc8opheyp" path="res://Data/Maps/Level1/room_2.tscn" id="3_0d2ig"]
 [ext_resource type="Script" uid="uid://dpfx2nnlrswvn" path="res://Scripts/Projectile_Manager.gd" id="3_nm2yv"]
 [ext_resource type="Texture2D" uid="uid://d11c44og4ypk4" path="res://Data/Assets/light.png" id="4_dwg7r"]
+[ext_resource type="PackedScene" uid="uid://clsv8hc1s2rdy" path="res://Data/Maps/Level1/room_3.tscn" id="4_vto2u"]
 [ext_resource type="PackedScene" uid="uid://bdu5ddm12wfkn" path="res://Data/Maps/Level2/room_1.tscn" id="4_xnhx3"]
 [ext_resource type="PackedScene" uid="uid://bmh5rm65y1n34" path="res://Data/Maps/Level2/room_2.tscn" id="5_57hf1"]
+[ext_resource type="PackedScene" uid="uid://bripyyxgfqd0u" path="res://Data/Maps/Level1/room_4.tscn" id="5_t4l5f"]
 [ext_resource type="PackedScene" uid="uid://bcvuun35pwt2k" path="res://Data/Maps/Level3/room_1.tscn" id="6_57hf1"]
+[ext_resource type="PackedScene" uid="uid://dhgcbnsoc01wj" path="res://Data/Maps/Level1/room_5.tscn" id="6_hqnrc"]
 [ext_resource type="Texture2D" uid="uid://ded8j6ehtpej0" path="res://Data/Assets/HealthBarOver.png" id="8_clt4m"]
 [ext_resource type="Script" uid="uid://cy2elpm8ib22q" path="res://Scripts/game_ui.gd" id="8_vm3ls"]
+[ext_resource type="PackedScene" uid="uid://4tkdwd72x441" path="res://Data/Maps/Level2/room_3.tscn" id="9_0t40j"]
 [ext_resource type="Texture2D" uid="uid://fd1atvnl0jrw" path="res://Data/Assets/HealthBarFill.png" id="9_vm3ls"]
+[ext_resource type="PackedScene" uid="uid://bcmch6f6uey73" path="res://Data/Maps/Level2/room_4.tscn" id="10_q6q63"]
 [ext_resource type="Script" uid="uid://cewjqb31guebl" path="res://Scripts/Enemy_Manager.gd" id="10_rwune"]
 [ext_resource type="Texture2D" uid="uid://c2gwrktyj5uoh" path="res://Data/Assets/ManaBarFill.png" id="11_461sl"]
+[ext_resource type="PackedScene" uid="uid://bigsx05h7oyt3" path="res://Data/Maps/Level2/room_5.tscn" id="11_rwygr"]
 [ext_resource type="Texture2D" uid="uid://21lhfyckku7u" path="res://Data/Assets/TitleArt.png" id="12_nq7dk"]
 [ext_resource type="FontFile" uid="uid://bgjmpciex6n01" path="res://Data/Assets/Pixeltype.ttf" id="13_84hfh"]
+[ext_resource type="PackedScene" uid="uid://la3rpht3j17q" path="res://Data/Maps/Level3/room_2.tscn" id="13_gg0xu"]
+[ext_resource type="PackedScene" uid="uid://crhacqtlnstes" path="res://Data/Maps/Level3/room_3.tscn" id="14_5u53p"]
+[ext_resource type="PackedScene" uid="uid://cmhs7m5rb212b" path="res://Data/Maps/Level3/room_4.tscn" id="15_tbu28"]
+[ext_resource type="PackedScene" uid="uid://boywybta1gy6v" path="res://Data/Maps/Level3/room_5.tscn" id="16_mbmvc"]
 [ext_resource type="AudioStream" uid="uid://ruglohgdldit" path="res://Data/Assets/Sounds/VizardMusic.ogg" id="18_6lyjj"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfkfy")
-rooms_level_1 = Array[PackedScene]([ExtResource("2_j5ytp"), ExtResource("3_0d2ig")])
-rooms_level_2 = Array[PackedScene]([ExtResource("4_xnhx3"), ExtResource("5_57hf1")])
-rooms_level_3 = Array[PackedScene]([ExtResource("6_57hf1")])
+rooms_level_1 = Array[PackedScene]([ExtResource("2_j5ytp"), ExtResource("3_0d2ig"), ExtResource("4_vto2u"), ExtResource("5_t4l5f"), ExtResource("6_hqnrc")])
+rooms_level_2 = Array[PackedScene]([ExtResource("4_xnhx3"), ExtResource("5_57hf1"), ExtResource("9_0t40j"), ExtResource("10_q6q63"), ExtResource("11_rwygr")])
+rooms_level_3 = Array[PackedScene]([ExtResource("6_57hf1"), ExtResource("13_gg0xu"), ExtResource("14_5u53p"), ExtResource("15_tbu28"), ExtResource("16_mbmvc")])
 level_2_threshold = 3
 level_3_threshold = 5
 player_scene = ExtResource("1_0hdeg")
@@ -101,7 +111,6 @@ text = "Quit
 
 [node name="GameUI" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,12 +130,35 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="VboxFloorLabels" type="VBoxContainer" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VboxFloorLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.32941177, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("13_84hfh")
+text = "Floors 
+Cleared"
+horizontal_alignment = 1
+
+[node name="FloorNumLabel" type="Label" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VboxFloorLabels"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.32941177, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("13_84hfh")
+text = "#"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HPBar" type="TextureProgressBar" parent="CanvasLayer/GameUI/MarginContainer/HBoxContainer"]
+[node name="HPBar" type="TextureProgressBar" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
@@ -135,14 +167,49 @@ fill_mode = 3
 texture_over = ExtResource("8_clt4m")
 texture_progress = ExtResource("9_vm3ls")
 
-[node name="ManaBar" type="TextureProgressBar" parent="CanvasLayer/GameUI/MarginContainer/HBoxContainer"]
+[node name="ManaBar" type="TextureProgressBar" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 value = 100.0
 fill_mode = 3
 texture_over = ExtResource("8_clt4m")
 texture_progress = ExtResource("11_461sl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxMask" type="HBoxContainer" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LabelQ" type="Label" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VBoxContainer/HBoxMask"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.32941177, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("13_84hfh")
+text = "Q"
+horizontal_alignment = 1
+
+[node name="MaskTexture" type="TextureRect" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VBoxContainer/HBoxMask"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 2
+
+[node name="LabelE" type="Label" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VBoxContainer/HBoxMask"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.32941177, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("13_84hfh")
+text = "E"
+horizontal_alignment = 1
+
+[node name="LabelMaskType" type="Label" parent="CanvasLayer/GameUI/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.32941177, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("13_84hfh")
+text = "Q"
+horizontal_alignment = 1
 
 [node name="Transition" type="ColorRect" parent="CanvasLayer/GameUI"]
 unique_name_in_owner = true

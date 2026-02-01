@@ -9,5 +9,5 @@ name = "Clown"
 Visuals = ExtResource("1_x2ace")
 max_hp = 20
 damage = 4
-speed = 14.0
+speed = 28.0
 metadata/_custom_type_script = "uid://206h3y8h5xa5"
