@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://la3rpht3j17q"]
+[gd_scene load_steps=9 format=4 uid="uid://la3rpht3j17q"]
 
 [ext_resource type="Script" uid="uid://bw53ymcahqwqa" path="res://Data/Maps/room.gd" id="1_rn0dj"]
 [ext_resource type="Texture2D" uid="uid://ck1vtdqaim0lw" path="res://Data/Maps/Tilemap.png" id="2_sxdrg"]
 [ext_resource type="PackedScene" uid="uid://xh0fn8jpscvj" path="res://Data/Maps/door_area.tscn" id="3_sqciq"]
 [ext_resource type="PackedScene" uid="uid://caqf5ytgydlqc" path="res://Data/Environment/Spawner.tscn" id="4_0n05o"]
+[ext_resource type="Resource" uid="uid://6j0t3408u23e" path="res://Data/Resources/Enemies/SkullEnemy.tres" id="5_sxdrg"]
 [ext_resource type="Resource" uid="uid://dby8op77ns3ja" path="res://Data/Resources/Enemies/ClownEnemy.tres" id="5_xvw4d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p5gb"]
@@ -128,7 +129,7 @@ texture = ExtResource("2_sxdrg")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_8p5gb")
 
-[node name="Level3Room1" type="Node2D" node_paths=PackedStringArray("entrance_pos", "doors_node", "spawners_node")]
+[node name="Level3Room2" type="Node2D" node_paths=PackedStringArray("entrance_pos", "doors_node", "spawners_node")]
 script = ExtResource("1_rn0dj")
 entrance_pos = NodePath("EntrancePos")
 doors_node = NodePath("Doors")
@@ -156,18 +157,18 @@ position = Vector2(232, 136)
 
 [node name="SpawnPoint" parent="EnemySpawners" instance=ExtResource("4_0n05o")]
 position = Vector2(112, 96)
-CharacterToSpawn = ExtResource("5_xvw4d")
-SpawnCount = 2
-SpawnRate = 0.3
+CharacterToSpawn = ExtResource("5_sxdrg")
+SpawnCount = 12
+SpawnRate = 3.0
 
 [node name="SpawnPoint2" parent="EnemySpawners" instance=ExtResource("4_0n05o")]
 position = Vector2(137, 159)
 CharacterToSpawn = ExtResource("5_xvw4d")
-SpawnCount = 2
+SpawnCount = 5
 SpawnRate = 0.3
 
 [node name="SpawnPoint3" parent="EnemySpawners" instance=ExtResource("4_0n05o")]
 position = Vector2(160, 96)
-CharacterToSpawn = ExtResource("5_xvw4d")
-SpawnCount = 2
-SpawnRate = 0.3
+CharacterToSpawn = ExtResource("5_sxdrg")
+SpawnCount = 12
+SpawnRate = 3.0

@@ -6,6 +6,7 @@ signal room_sent(PackedScene)
 signal room_exited(PackedScene)
 
 signal mask_changed(MaskResource)
+signal player_died
 
 signal shot_fired(shoot_position: Vector2, mouse_pos: Vector2, mask_index: String)
 signal enemy_shot_fired(projectile: Projectile, enemy: Enemy)

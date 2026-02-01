@@ -68,3 +68,15 @@ func _Kill():
 	hitboxArea.monitoring = false
 	collisionShape.set_deferred("disabled", false)
 	GameEvents.enemy_death.emit(self)
+
+func _on_player_detection_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		_set_new_wander()
+
+func _on_wander_timer_timeout() -> void:
+	_set_new_wander()
+
+func _set_new_wander():
+	var rand_dir = [-1.0, 1.0, 0.0]
+	dir = Vector2(rand_dir.pick_random(), rand_dir.pick_random())
+	change_state(State.WANDER)

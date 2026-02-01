@@ -7,9 +7,11 @@ extends Control
 @onready var floor_num_label: Label = %FloorNumLabel
 @onready var mask_texture: TextureRect = %MaskTexture
 @onready var label_mask_type: Label = %LabelMaskType
+@onready var game_over_menu: Control = %GameOverMenu
 
 func _ready() -> void:
 	GameEvents.connect("mask_changed", _on_mask_changed)
+	GameEvents.connect("player_died", _on_player_died)
 
 func _process(_delta: float) -> void:
 	if player:
@@ -23,4 +25,8 @@ func _on_play_button_pressed() -> void:
 func _on_mask_changed(mask: MaskResource) -> void:
 	mask_texture.texture = mask.maskSprite
 	label_mask_type.text = mask.maskName
-	
+
+func _on_player_died():
+	game_over_menu.show()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().paused = true

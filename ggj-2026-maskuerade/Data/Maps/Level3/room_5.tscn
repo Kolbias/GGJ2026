@@ -128,7 +128,7 @@ texture = ExtResource("2_8qauc")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_8p5gb")
 
-[node name="Level3Room1" type="Node2D" node_paths=PackedStringArray("entrance_pos", "doors_node", "spawners_node")]
+[node name="Level3Room5" type="Node2D" node_paths=PackedStringArray("entrance_pos", "doors_node", "spawners_node")]
 script = ExtResource("1_plct0")
 entrance_pos = NodePath("EntrancePos")
 doors_node = NodePath("Doors")

@@ -67,3 +67,7 @@ func _on_room_requested():
 		var new_room = rooms_level_3.pick_random()
 		GameEvents.emit_signal("room_sent", new_room)
 		
+
+func _on_retry_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()

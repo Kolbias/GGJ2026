@@ -157,9 +157,11 @@ position = Vector2(232, 136)
 [node name="SpawnPoint" parent="EnemySpawners" instance=ExtResource("4_f0ktt")]
 position = Vector2(54, 53)
 CharacterToSpawn = ExtResource("5_u7k70")
-SpawnCount = 4
+SpawnCount = 3
+SpawnRate = 0.3
 
 [node name="SpawnPoint2" parent="EnemySpawners" instance=ExtResource("4_f0ktt")]
 position = Vector2(200, 199)
 CharacterToSpawn = ExtResource("5_u7k70")
-SpawnCount = 4
+SpawnCount = 3
+SpawnRate = 0.3

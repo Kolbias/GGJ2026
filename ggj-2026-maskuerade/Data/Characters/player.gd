@@ -66,6 +66,7 @@ func _on_hurtbox_body_entered(body: Enemy) -> void:
 		if current_hp <= 0:
 			print("You are died!")
 			currentState = PlayerState.Dead
+			GameEvents.emit_signal("player_died")
 			hide()
 
 func _MoveToNextMask():

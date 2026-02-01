@@ -7,7 +7,7 @@
 script = ExtResource("1_a35mn")
 name = "Skull"
 Visuals = ExtResource("1_sp30c")
-max_hp = 4
+max_hp = 2
 damage = 1
 speed = 25.0
 metadata/_custom_type_script = "uid://206h3y8h5xa5"

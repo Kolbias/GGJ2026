@@ -42,7 +42,7 @@ texture = ExtResource("2_h8hsk")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_8p5gb")
 
-[node name="Room2" type="Node2D" node_paths=PackedStringArray("entrance_pos", "doors_node", "spawners_node") groups=["wall"]]
+[node name="Room3" type="Node2D" node_paths=PackedStringArray("entrance_pos", "doors_node", "spawners_node") groups=["wall"]]
 script = ExtResource("1_jw7d8")
 entrance_pos = NodePath("EntrancePos")
 doors_node = NodePath("Doors")
@@ -71,5 +71,5 @@ position = Vector2(24, 136)
 [node name="SpawnPoint" parent="EnemySpawners" instance=ExtResource("4_h8hsk")]
 position = Vector2(223, 34)
 CharacterToSpawn = ExtResource("5_x5i44")
-SpawnCount = 12
-SpawnRate = 0.9
+SpawnCount = 10
+SpawnRate = 2.0

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ck1vtdqaim0lw" path="res://Data/Maps/Tilemap.png" id="2_7hrxa"]
 [ext_resource type="PackedScene" uid="uid://xh0fn8jpscvj" path="res://Data/Maps/door_area.tscn" id="3_oaflx"]
 [ext_resource type="PackedScene" uid="uid://caqf5ytgydlqc" path="res://Data/Environment/Spawner.tscn" id="4_7hrxa"]
-[ext_resource type="Resource" uid="uid://d4iqq40j153km" path="res://Data/Resources/Enemies/MaskEnemy.tres" id="5_oaflx"]
+[ext_resource type="Resource" uid="uid://6j0t3408u23e" path="res://Data/Resources/Enemies/SkullEnemy.tres" id="5_7hrxa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p5gb"]
 texture = ExtResource("2_7hrxa")
@@ -70,6 +70,6 @@ position = Vector2(24, 136)
 
 [node name="SpawnPoint" parent="EnemySpawners" instance=ExtResource("4_7hrxa")]
 position = Vector2(63, 71)
-CharacterToSpawn = ExtResource("5_oaflx")
-SpawnCount = 5
-SpawnRate = 0.3
+CharacterToSpawn = ExtResource("5_7hrxa")
+SpawnCount = 10
+SpawnRate = 1.5

@@ -7,5 +7,5 @@
 script = ExtResource("1_5fe48")
 name = "Mask"
 Visuals = ExtResource("1_g36dt")
-speed = 20.0
+speed = 25.0
 metadata/_custom_type_script = "uid://206h3y8h5xa5"
