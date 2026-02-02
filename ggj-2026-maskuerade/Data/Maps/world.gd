@@ -70,4 +70,5 @@ func _on_room_requested():
 
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false
+	GameEvents.rooms_cleared = 0
 	get_tree().reload_current_scene()
