@@ -28,8 +28,8 @@ func _on_enemy_spawn(spawnPosition: Vector2, enemyResource : Enemy_Resource):
 
 func _on_enemy_death(enemyRef : Enemy):
 	enemies.erase(enemyRef)
-	enemyRef.queue_free()
-	GameEvents.emit_signal("enemy_killed")
+	enemyRef.killed()
+	#GameEvents.emit_signal("enemy_killed")
 			
 
 func _on_clear_enemies():

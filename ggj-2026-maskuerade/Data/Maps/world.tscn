@@ -103,6 +103,7 @@ theme_override_fonts/font = ExtResource("13_84hfh")
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("13_84hfh")
@@ -212,6 +213,33 @@ theme_override_fonts/font = ExtResource("13_84hfh")
 text = "Q"
 horizontal_alignment = 1
 
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/GameUI"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 5
+
+[node name="ControlsLabel" type="Label" parent="CanvasLayer/GameUI/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.48235294, 0.32941177, 0.5019608, 1)
+theme_override_fonts/font = ExtResource("13_84hfh")
+theme_override_font_sizes/font_size = 8
+text = "Move - WASD
+
+Shoot - Mouse
+
+Dash - Space
+
+Switch Mask - Q/E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Transition" type="ColorRect" parent="CanvasLayer/GameUI"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
@@ -253,6 +281,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_84hfh")
 text = "Game Over"
+horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="CanvasLayer/GameUI/GameOverMenu/VBoxContainer"]
 layout_mode = 2

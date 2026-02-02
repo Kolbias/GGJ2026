@@ -16,6 +16,7 @@ var current_state = State.IDLE
 var player_pos: Vector2
 var dir: Vector2
 var current_hp: int
+var alive: bool = true
 
 func _ready() -> void:
 	hp_bar.max_value = enemy_Resource.max_hp
@@ -43,7 +44,7 @@ func _process(_delta: float) -> void:
 		State.CHASE:
 			state_debug_label.text = "CHASE"
 			dir = player_pos - global_position
-			
+
 			
 	velocity = dir * enemy_Resource.speed
 	move_and_slide()
@@ -80,3 +81,11 @@ func _set_new_wander():
 	var rand_dir = [-1.0, 1.0, 0.0]
 	dir = Vector2(rand_dir.pick_random(), rand_dir.pick_random())
 	change_state(State.WANDER)
+
+func killed():
+	if alive:
+		GameEvents.emit_signal("enemy_killed")
+		alive = false
+	else:
+		pass
+	queue_free()
